@@ -1,0 +1,44 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Registrate
+    </title>
+{% endblock titulo %}
+
+{% block foto_principal %}
+
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/registro.jpg' %}" alt="fotoregistro" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Ingrese sus Datos y registrese.</h1>
+                    <form action="" method="POST" class="col-lg-5">
+                        {% csrf_token %}
+                        <strong>
+                        <p> Ingrese su nombre : <input type="text" name="nombre" id="nombre"></p>
+                        <p> Ingrese su apellido : <input type="text" name="apellido" id="apellido"></p>
+                        <p> Ingrese su DNI : <input type="number" name="dni" id="dni"></p>
+                        <p> Ingrese su email : <input type="email" name="email" id="email"></p>
+                        <p> Elige tu Membresía :</p> 
+                            <ul>
+                                <p><input type="radio" name="tipo" value="FREE" id="tipo">Free</p>
+                                <p><input type="radio" name="tipo" value="BRONZE" id="tipo">Bronze</p>
+                                <p><input type="radio" name="tipo" value="GOLD" id="tipo">Gold</p>
+                                <p><input type="radio" name="tipo" value="SILVER" id="tipo">Silver</p>
+                                <p><input type="radio" name="tipo" value="PLATINUM" id="tipo">Platinum</p>
+                        </strong>
+                        <br>
+                
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+
+                   
+
+
+{% endblock descripcion %}
+

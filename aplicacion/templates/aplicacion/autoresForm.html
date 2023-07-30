@@ -1,0 +1,29 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Ingresá Nuevo Autor
+    </title>
+{% endblock titulo %}
+
+{% block foto_principal %}
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/nuevo_autor.jpg' %}" alt="autoregistro" /></div>
+{% endblock foto_principal %}
+
+{% block descripcion %}
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Ingrese Nuevo Autor</h1>
+                    <form action="" method="POST" class="col-lg-5">
+                        {% csrf_token %}
+                        <strong>
+                        <p> Nombre del Autor : <input type="text" name="nombre" id="nombre"></p>
+                        <p> Apellido : <input type="text" name="apellido" id="apellido"></p>
+                        <br>
+                        </strong>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+{% endblock descripcion %}
+
+

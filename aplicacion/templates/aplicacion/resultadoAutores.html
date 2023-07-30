@@ -1,0 +1,42 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Resultado Busqueda
+    </title>
+{% endblock titulo %}
+
+
+{% block foto_principal %}
+
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/buscar_autor.jpg' %}" alt="buscarautores" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+    <div class="col-lg-5">
+             <center><h2 class="font-weight-light">Resultado de la Búsqueda: {{ nombre }} </h2> </center>
+    
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for autores in apellido  %}                 
+                            <tr>
+                                <td>{{ autores.id }}</td>
+                                <td>{{ autores.nombre }}</td>
+                                <td>{{ autores.apellido }}</td>
+                            </tr>                   
+                         {% endfor %}
+                    </tbody>
+                </table>     
+        </div>                
+{% endblock descripcion %}
+

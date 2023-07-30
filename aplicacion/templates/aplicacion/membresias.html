@@ -1,0 +1,48 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Membresías
+    </title>
+{% endblock titulo %}
+
+{% block foto_principal %}
+
+<div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/membresias.jpg' %}" alt="fotomembresias" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Membresías</h1>
+                    <p>Consulta por nuestros planes de membresías, accede a un mundo de posibilidades con nosotros rentando e incluso comprando con increíbles descuentos y promociones!.</p>
+                    <a class="btn btn-primary" href="{% url 'cliente' %}">Contáctanos para saber más sobre Membresías</a>
+                </div>
+{% endblock descripcion %}
+
+{% block contenido %}
+    <center><h1>COSTOS DE MEMBRESÍAS</h1></center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Membresía</th>
+                <th>Fecha de actualización</th>
+                <th>Costo mensual</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membresias in membresias %}
+        <tr>
+            <td>{{ membresias.id }}</td>
+            <td>{{ membresias.tipo }}</td>
+            <td>{{ membresias.fechaInicio }}</td>
+            <td>{{ membresias.precio }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+{% endblock contenido %}
+
+

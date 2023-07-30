@@ -1,0 +1,60 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Autores
+    </title>
+{% endblock titulo %}
+
+
+{% block foto_principal %}
+
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/galeria_escritores.jpg' %}" alt="fotoautores" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Autores</h1>
+                    <p>Te mostramos la basta diversidad de autores de nuestra librería.</p><br>
+
+                    <center>
+                        <a class="btn btn-primary" href="{% url 'buscarAutor' %}">Buscar tu Autor</a>
+                
+                        
+                    </center>
+
+
+                </div>
+{% endblock descripcion %}
+
+{% block contenido %}
+
+
+    <center><h1>Listado de Autores</h1></center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for autores in autores %}
+        <tr>
+            <td>{{ autores.id }}</td>
+            <td>{{ autores.nombre }}</td>
+            <td>{{ autores.apellido }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>    
+
+    <center>
+        <a class="btn btn-primary" href="{% url 'autoresForm' %}">Agrega Nuevo Autor</a>
+
+        
+    </center>
+{% endblock contenido %}

@@ -1,0 +1,50 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Libros
+    </title>
+{% endblock titulo %}
+
+{% block foto_principal %}
+
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/libros_html.jpg' %}" alt="fotolibros" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Catálogo de Libros</h1>
+                    <p>Consigue el libro que buscas!</p>
+                </div>
+                {% endblock descripcion %}
+
+{% block contenido %}
+    <center><h1>Listado de Libros</h1></center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Autor</th>
+                <th>Año de Publicación</th>
+                <th>Editorial</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for libros in libros %}
+        <tr>
+            <td>{{ libros.id }}</td>
+            <td>{{ libros.nombre }}</td>
+            <td>{{ libros.autor }}</td>
+            <td>{{ libros.anio }}</td>
+            <td>{{ libros.editorial }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <center>
+        <a class="btn btn-primary" href="{% url 'librosForm' %}">Agrega Nuevo Libro</a>
+    </center>    
+{% endblock contenido %}

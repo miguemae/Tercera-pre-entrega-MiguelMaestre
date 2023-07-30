@@ -1,0 +1,25 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Buscar Autor
+    </title>
+{% endblock titulo %}
+
+
+{% block foto_principal %}
+
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/buscar_autor.jpg' %}" alt="buscarautores" /></div>
+
+{% endblock foto_principal %}
+
+{% block descripcion %}
+    <div class="col-lg-5">
+        <h2> Ingrese el nombre del Autor </h2>
+        <form action="/aplicacion/buscar2" method="get">
+        {% csrf_token %}
+            <input type="text" name="nombre" id="nombre">
+            <input type="submit" value="Buscar">
+        </div>
+{% endblock descripcion %}

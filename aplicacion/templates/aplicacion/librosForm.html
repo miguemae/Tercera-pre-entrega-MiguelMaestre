@@ -1,0 +1,28 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>
+        Nuevo Libro
+    </title>
+{% endblock titulo %}
+
+{% block foto_principal %}
+<div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'aplicacion/assets/nuevo_libro.jpg' %}" alt="libroregistro" /></div>
+{% endblock foto_principal %}
+{% block descripcion %}
+                    <div class="col-lg-5">
+                    <h1 class="font-weight-light">Ingrese Nuevo Libro</h1>
+                    <strong>
+                    <form action="" method="POST" class="col-lg-5">
+                        {% csrf_token %}
+                        <p> Nombre del Libro : <input type="text" name="nombre" id="nombre"></p>
+                        <p> Autor : <input type="text" name="autor" id="autor"></p>
+                        <p> Año de Publicación : <input type="number" name="anio" id="anio"></p>
+                        <p> Editorial : <input type="text" name="editorial" id="editorial"></p>
+                        <br>
+                    </strong>
+                        <input type="submit" value="Enviar">
+                    </form>
+                    </div>
+{% endblock descripcion %}
